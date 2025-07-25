@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CureWellDataAccessLayer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c963ceffac434ef4f21b36d06e0ee3c50b8419c7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c20d70fab1338f45d755f0b38ee5e9f9006b5c56")]
 [assembly: System.Reflection.AssemblyProductAttribute("CureWellDataAccessLayer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CureWellDataAccessLayer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

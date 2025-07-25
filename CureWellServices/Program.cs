@@ -22,9 +22,10 @@ namespace CureWellServices
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
-            app.UseCors(options=>options.WithOrigins("*").AllowAnyMethod().AllowAnyHeader());
+            app.UseCors(options => options.WithOrigins("*").AllowAnyMethod().AllowAnyHeader());
 
-            if (app.Environment.IsDevelopment())
+            // ✅ Enable Swagger for both Development and Production
+            if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
@@ -33,7 +34,6 @@ namespace CureWellServices
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
