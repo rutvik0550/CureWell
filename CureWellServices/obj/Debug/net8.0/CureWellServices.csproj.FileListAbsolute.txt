@@ -189,7 +189,7 @@ C:\Users\LENOVO\Downloads\CureWell\CureWellServices\obj\Debug\net8.0\staticwebas
 C:\Users\LENOVO\Downloads\CureWell\CureWellServices\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\LENOVO\Downloads\CureWell\CureWellServices\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\LENOVO\Downloads\CureWell\CureWellServices\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\LENOVO\Downloads\CureWell\CureWellServices\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\LENOVO\Downloads\CureWell\CureWellServices\obj\Debug\net8.0\CureWell.3865047B.Up2Date
 C:\Users\LENOVO\Downloads\CureWell\CureWellServices\obj\Debug\net8.0\CureWellServices.genruntimeconfig.cache
 C:\Users\LENOVO\Downloads\CureWell\CureWellServices\obj\Debug\net8.0\ref\CureWellServices.dll
+C:\Users\LENOVO\Downloads\CureWell\CurewellServices\obj\Debug\net8.0\CureWellServices.sourcelink.json

@@ -21,10 +21,10 @@ C:\Users\LENOVO\Downloads\CureWell\CureWellDataAccessLayer\obj\Debug\net8.0\Cure
 C:\Users\LENOVO\Downloads\CureWell\CureWellDataAccessLayer\obj\Debug\net8.0\CureWellDataAccessLayer.dll
 C:\Users\LENOVO\Downloads\CureWell\CureWellDataAccessLayer\obj\Debug\net8.0\refint\CureWellDataAccessLayer.dll
 C:\Users\LENOVO\Downloads\CureWell\CureWellDataAccessLayer\obj\Debug\net8.0\CureWellDataAccessLayer.pdb
-C:\Users\LENOVO\Downloads\CureWell\CureWellDataAccessLayer\bin\Debug\net8.0\appsettings.json
 C:\Users\LENOVO\Downloads\CureWell\CureWellDataAccessLayer\bin\Debug\net8.0\CureWellDataAccessLayer.deps.json
 C:\Users\LENOVO\Downloads\CureWell\CureWellDataAccessLayer\bin\Debug\net8.0\CureWellDataAccessLayer.runtimeconfig.json
 C:\Users\LENOVO\Downloads\CureWell\CureWellDataAccessLayer\bin\Debug\net8.0\CureWellDataAccessLayer.dll
 C:\Users\LENOVO\Downloads\CureWell\CureWellDataAccessLayer\bin\Debug\net8.0\CureWellDataAccessLayer.pdb
 C:\Users\LENOVO\Downloads\CureWell\CureWellDataAccessLayer\obj\Debug\net8.0\CureWellDataAccessLayer.genruntimeconfig.cache
 C:\Users\LENOVO\Downloads\CureWell\CureWellDataAccessLayer\obj\Debug\net8.0\ref\CureWellDataAccessLayer.dll
+C:\Users\LENOVO\Downloads\CureWell\CureWellDataAccessLayer\obj\Debug\net8.0\CureWellDataAccessLayer.sourcelink.json
