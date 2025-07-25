@@ -1,25 +1,26 @@
+# ---------- Build stage ----------
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# copy csproj and sln
-COPY CureWell.sln ./
-COPY CureWellApp/*.csproj ./CureWellApp/
-COPY CureWellDataAccessLayer/*.csproj ./CureWellDataAccessLayer/
+# copy csproj files first
 COPY CureWellServices/*.csproj ./CureWellServices/
+COPY CureWellDataAccessLayer/*.csproj ./CureWellDataAccessLayer/
+COPY CureWell.sln .
 
-# restore via solution
-RUN dotnet restore CureWell.sln
+# restore the actual web project
+RUN dotnet restore CureWellServices/CureWellServices.csproj
 
-# copy the rest
+# now copy everything
 COPY . .
 
-# publish
-WORKDIR /src/CureWellApp
-RUN dotnet publish -c Release -o /app/publish
+# publish the web project
+WORKDIR /src/CureWellServices
+RUN dotnet publish -c Release -o /app
 
-# runtime
+# ---------- Runtime stage ----------
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
-COPY --from=build /app/publish .
-EXPOSE 80
-ENTRYPOINT ["dotnet", "CureWellApp.dll"]
+COPY --from=build /app ./
+
+# start the web service
+ENTRYPOINT ["dotnet", "CureWellServices.dll"]
