@@ -2,18 +2,16 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Copy solution and project files first (better layer caching)
-COPY *.sln ./
+# Copy only the .csproj first
 COPY CureWellApp/*.csproj ./CureWellApp/
 COPY CureWellDataAccessLayer/*.csproj ./CureWellDataAccessLayer/
 
-# Restore as distinct layers
-RUN dotnet restore
+# restore using the web app project instead of solution
+RUN dotnet restore CureWellApp/CureWellApp.csproj
 
-# Copy everything else
+# copy the rest
 COPY . .
 
-# Publish the main web project
 WORKDIR /src/CureWellApp
 RUN dotnet publish -c Release -o /app/publish
 
@@ -22,8 +20,5 @@ FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/publish .
 
-# Expose port 80 (Render default)
 EXPOSE 80
-
-# Run your application
 ENTRYPOINT ["dotnet", "CureWellApp.dll"]
