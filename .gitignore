@@ -1,0 +1,12 @@
+# Ignore Visual Studio build artifacts
+bin/
+obj/
+.vs/
+
+# Ignore temporary build files
+*.cache
+*.log
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
