@@ -15,7 +15,7 @@ import { Surgery } from '../curewell-interfaces/surgery';
   providedIn: 'root',
 })
 export class CurewellService {
-  baseUrl: string = 'https://localhost:44325/api/CureWell';
+  baseUrl: string = 'https://curewell.onrender.com/api/CureWell';
 
   constructor(private http: HttpClient) {}
 
