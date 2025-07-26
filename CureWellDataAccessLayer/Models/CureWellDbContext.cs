@@ -24,18 +24,14 @@ public partial class CureWellDbContext : DbContext
 
     public virtual DbSet<Surgery> Surgeries { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        var builder = new ConfigurationBuilder()
-                      .SetBasePath(Directory.GetCurrentDirectory())
-                      .AddJsonFile("appsettings.json");
-        var config = builder.Build();
-        var connectionString = config.GetConnectionString("CureWellDBConnectionString");
-        if (!optionsBuilder.IsConfigured)
-        {
-            optionsBuilder.UseSqlServer(connectionString);
-        }
-    }
+// protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+// {
+//     if (!optionsBuilder.IsConfigured)
+//     {
+//         optionsBuilder.UseSqlite("Data Source=CureWell.db");
+//     }
+// }
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

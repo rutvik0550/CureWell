@@ -2,7 +2,8 @@
 bin/
 obj/
 .vs/
-
+node_modules/
+dist/
 # Ignore temporary build files
 *.cache
 *.log

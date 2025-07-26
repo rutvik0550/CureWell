@@ -1,6 +1,6 @@
-
 using CureWellDataAccessLayer;
 using CureWellDataAccessLayer.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CureWellServices
 {
@@ -10,21 +10,24 @@ namespace CureWellServices
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            // ✅ Use SQLite (connection string in appsettings.json)
+            builder.Services.AddDbContext<CureWellDbContext>(options =>
+                options.UseSqlite(builder.Configuration.GetConnectionString("CureWellDBConnectionString")));
 
+            // ✅ Repository registration
+            builder.Services.AddScoped<CureWellRepository>();
+
+            // ✅ Add controllers and Swagger
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            builder.Services.AddTransient<CureWellDbContext>();
-            builder.Services.AddTransient<CureWellRepository>(
-                c => new CureWellRepository(c.GetRequiredService<CureWellDbContext>()));
+
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
-            app.UseCors(options => options.WithOrigins("*").AllowAnyMethod().AllowAnyHeader());
+            // ✅ Allow any CORS (adjust for security as needed)
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
-            // ✅ Enable Swagger for both Development and Production
+            // ✅ Enable Swagger for dev and prod
             if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
             {
                 app.UseSwagger();
@@ -32,10 +35,27 @@ namespace CureWellServices
             }
 
             app.UseHttpsRedirection();
-
             app.UseAuthorization();
-
             app.MapControllers();
+
+            // ✅ Ensure database is created and seed from CureWell.sql
+            using (var scope = app.Services.CreateScope())
+            {
+                var db = scope.ServiceProvider.GetRequiredService<CureWellDbContext>();
+                // Create empty database if not exists
+                db.Database.EnsureCreated();
+
+                // Path to your SQL script (make sure CureWell.sql is copied to output)
+                var scriptPath = Path.Combine(AppContext.BaseDirectory, "CureWell.sql");
+                if (File.Exists(scriptPath))
+                {
+                    var sql = File.ReadAllText(scriptPath);
+                    if (!string.IsNullOrWhiteSpace(sql))
+                    {
+                        db.Database.ExecuteSqlRaw(sql);
+                    }
+                }
+            }
 
             app.Run();
         }
