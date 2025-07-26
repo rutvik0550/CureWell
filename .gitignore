@@ -1,16 +1,6 @@
-# =========================
-# Visual Studio / .NET
-# =========================
+### --- .NET build artifacts ---
 bin/
 obj/
-.vs/
-*.user
-*.suo
-*.userosscache
-*.sln.docstates
-*.ide
-
-# Build Results
 [Bb]uild/
 [Ll]og/
 [Dd]ebug/
@@ -19,77 +9,62 @@ x64/
 x86/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
-*.exe
-*.dll
-*.pdb
-*.cache
-*.ilk
-*.log
-*.vspscc
-*.vssscc
-_TestResults/
+
+# Test results and publish folders
 TestResults/
+*.PublishProfiles/
+publish/
 
-# NuGet packages
-packages/
-*.nupkg
-project.lock.json
-project.fragment.lock.json
-artifacts/
+# User-specific and IDE settings
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
 
-# Rider / JetBrains
+# Rider / JetBrains IDE
 .idea/
 *.iml
-out/
 
-# =========================
-# Angular / Frontend
-# =========================
+# Backup and temp files
+*.bak
+*.tmp
+
+### --- Angular / Node ---
 node_modules/
 dist/
-.tmp/
-.cache/
 .angular/
+.angular/cache/
+.angular/cache/**
+.angular/config.json
+.cache/
 coverage/
+*.tsbuildinfo
 
-# Angular build output
-/.output
-/.angular/cache
-
-# =========================
-# Environment & secrets
-# =========================
+# Environment files (keep secrets local)
 *.env
-*.env.local
 *.env.*.local
 
-# =========================
-# Logs / temporary
-# =========================
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
-pnpm-debug.log*
-*.pid
-*.seed
-*.pid.lock
-
-# =========================
-# OS generated
-# =========================
+# System files
 .DS_Store
 Thumbs.db
 desktop.ini
-$RECYCLE.BIN/
-ehthumbs.db
 
-# =========================
-# Visual Studio Code
-# =========================
+### --- VS Code workspace (optional to ignore settings) ---
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-.history/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Other
+*.pid
+*.seed
+*.pid.lock
