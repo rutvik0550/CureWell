@@ -57,6 +57,9 @@ CREATE TABLE Surgery (
     FOREIGN KEY (SurgeryCategory) REFERENCES Specialization (SpecializationCode)
 );
 
--- Insert data into Surgery
-INSERT INTO Surgery (DoctorID, SurgeryDate, StartTime, EndTime, SurgeryCategory) VALUES (1, '2025-07-25', 9.00, 14.00, 'ANE');
-INSERT INTO Surgery (DoctorID, SurgeryDate, StartTime, EndTime, SurgeryCategory) VALUES (2, '2025-07-25', 10.00, 16.00, 'CAR');
+-- Insert data into Surgery with current date automatically
+INSERT INTO Surgery (DoctorID, SurgeryDate, StartTime, EndTime, SurgeryCategory)
+VALUES (1, DATE('now'), 9.00, 14.00, 'ANE');
+
+INSERT INTO Surgery (DoctorID, SurgeryDate, StartTime, EndTime, SurgeryCategory)
+VALUES (2, DATE('now'), 10.00, 16.00, 'CAR');
