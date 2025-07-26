@@ -30,6 +30,18 @@ publish/
 *.bak
 *.tmp
 
+# Extra .NET build outputs
+*.dll
+*.exe
+*.pdb
+
+### --- SQLite database and temp files ---
+# Local database file (optional – uncomment if you don’t want to push your dev DB)
+# *.db
+# Always ignore SQLite temp journals
+*.db-shm
+*.db-wal
+
 ### --- Angular / Node ---
 node_modules/
 dist/
